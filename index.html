@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>歌唱AI デモ環境案内</title>
+    <style>
+        :root {
+            --primary-color: #0070f3;
+            --bg-color: #f4f7f9;
+            --text-color: #333;
+            --card-bg: #ffffff;
+        }
+        body {
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 16px;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+        h1 {
+            font-size: 1.6rem;
+            margin-bottom: 1.5rem;
+            color: #111;
+        }
+        .info-text {
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+        .url-label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 8px;
+            color: #666;
+            text-align: left;
+            font-size: 0.9rem;
+        }
+        .url-box {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            word-break: break-all;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+            margin-bottom: 2rem;
+            border: 2px solid #e9ecef;
+            color: #444;
+            font-size: 0.95rem;
+        }
+        .btn {
+            display: block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 16px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+        .btn:hover {
+            background-color: #0060d0;
+            transform: translateY(-2px);
+        }
+        .btn:active {
+            transform: translateY(0);
+        }
+        .footer-note {
+            margin-top: 2rem;
+            font-size: 0.8rem;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>歌唱AI デモサイト案内</h1>
+    
+    <div class="info-text">
+        <p>以下のURLが、現在稼働中の歌唱AIデモ環境です。デモを開始するには下のボタンをクリックしてください。</p>
+    </div>
+
+    <span class="url-label">現在の接続先:</span>
+    <div class="url-box" id="display-url">
+        取得中...
+    </div>
+
+    <a href="#" id="redirect-btn" class="btn">デモサイトを開く</a>
+
+    <div class="footer-note">
+        ※このリンクは一時的なデモ環境（Cloudflare Tunnel）へ接続されます。
+    </div>
+</div>
+
+<script>
+    /**
+     * 設定: ここに cloudflared tunnel --url ... で表示された 
+     * https://xxxx.trycloudflare.com のURLを貼り付けてください。
+     */
+    const TARGET_URL = "https://occupation-assume-browsing-thorough.trycloudflare.com"; 
+
+    // 画面表示とボタンリンクの更新
+    const displayElement = document.getElementById('display-url');
+    const btnElement = document.getElementById('redirect-btn');
+
+    displayElement.textContent = TARGET_URL;
+    btnElement.href = TARGET_URL;
+
+    // 自動転送（setTimeout）は削除しました。
+</script>
+
+</body>
+</html>
